@@ -1,0 +1,111 @@
+macOS TestFlight and App Store Build Instructions
+================================================
+
+Prerequisites
+-------------
+
+1. You need an active Apple Developer subscription and a working Xcode installation.
+
+2. The project needs the macOS Python 3.8 runtime. If it is not already present, download
+   "python3-macos-3.8.13-universal2.zip" from:
+
+   https://github.com/lmbelo/python3-embeddable/releases/tag/v1.0.0
+
+   Extract it, rename the folder to "python38_darwin_universal", put it in
+   datafiles/Data/Python/, and install the required site packages. You can instead copy
+   the complete Python folder from a release bundle.
+
+
+Recommended: one-click Xcode project fixer
+-------------------------------------------
+
+1. Use Create Executable in GameMaker and wait for GameMaker to finish generating the
+   Xcode project.
+
+2. Double-click "Prepare macOS Build.command" in the repository root.
+
+   The fixer reads the GameMaker output directory from options/mac/options_mac.yy,
+   selects the final Xcode project, ignores GameMaker's "FromPC" staging project,
+   validates the bundle ID, applies all required settings, and opens the project in Xcode.
+
+   On its first run, the command downloads the pinned "xcodeproj" Ruby dependency into:
+
+       .macos-build-dependencies/
+
+   This directory is local, ignored by Git, and can be deleted at any time. The next run
+   will recreate it automatically. An internet connection is required only for this first
+   dependency installation.
+
+   If automatic project detection cannot choose safely, drag the generated .xcodeproj
+   package onto "Prepare macOS Build.command". Do not select a path containing "FromPC".
+
+3. In Xcode, choose Product -> Archive.
+
+4. In Organizer, select the archive and click Distribute App.
+
+5. For TestFlight or the App Store, choose App Store Connect. For a notarized file,
+   choose Direct Distribution.
+
+The fixer defaults to the known working signing configuration:
+
+    Signing style: Manual
+    Team ID:       2WJ25NL8J5
+    Profile:       onbs
+
+Contributors using another team or profile can run the command from Terminal with local
+overrides, for example:
+
+    NBS_MAC_TEAM_ID="YOUR_TEAM_ID" \
+    NBS_MAC_PROVISIONING_PROFILE="YOUR_PROFILE_NAME" \
+    "./Prepare macOS Build.command"
+
+To let Xcode manage signing automatically:
+
+    NBS_MAC_SIGNING_STYLE="Automatic" "./Prepare macOS Build.command"
+
+
+Manual fallback
+---------------
+
+Use these steps if the fixer cannot run on a particular Mac.
+
+1. Use Create Executable in GameMaker.
+
+2. Open the final generated Xcode project. Do not edit the project inside a directory
+   whose name contains "FromPC".
+
+3. In Xcode's Resources group:
+
+   - Add "NBS Icon macOS.icon" and "Icon.xcassets" from the repository root.
+   - Replace the generated "Minecraft_Note_Block_Studio-Info.plist" with the repository
+     copy.
+   - Replace the generated "Minecraft_Note_Block_Studio.entitlements" with the repository
+     copy.
+
+4. Under Signing & Capabilities:
+
+   - Turn off Automatically manage signing.
+   - Select a working provisioning profile.
+   - Add the Hardened Runtime capability.
+
+5. Under General -> App Icons and Launch Screen:
+
+   - Set App Icon to "NBS Icon macOS".
+
+6. Add these libraries to Frameworks, Libraries, and Embedded Content using Embed & Sign:
+
+   - extensions/gmmacostools/libGMmacOSTools.dylib
+   - extensions/GMaudioTools/libGMaudioTools.dylib
+   - extensions/pygml/libpygml.dylib, copied or renamed as libPygml.dylib
+   - extensions/pygml/libPython3.8.dylib
+
+   Keep at least one capital letter in each added filename; otherwise Xcode may reuse
+   GameMaker's lowercase ordinary-file reference instead of adding the library correctly.
+
+   If ffmpeg or ffprobe exists in the generated Supporting Files directory, run chmod +x
+   on each existing file so it can be launched by the app.
+
+7. Under Build Settings -> Packaging, set Product Name to "Note Block Studio".
+
+8. Choose Product -> Archive, then distribute the archive through Organizer as described
+   above.

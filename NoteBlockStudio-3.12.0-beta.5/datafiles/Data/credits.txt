@@ -1,0 +1,149 @@
+*CREDITS
+*---
+
+*Lead developer
+Bentroen
+
+*Project managers
+Bentroen
+encode42
+
+*Developers
+Bentroen
+OctoFlare
+
+*Former developers
+Hielke
+ShinkoNet
+
+*Originally created by
+David Andrei
+
+*Additional designs
+LeakyJAZZ
+
+---
+
+*Third-party technologies
+
+Boost.Filesystem|http://www.boost.org/libs/filesystem
+by the Boost contributors
+
+FFmpeg|https://www.ffmpeg.org/
+by the FFmpeg contributors
+
+LAME|https://lame.sourceforge.io/index.php/
+by the LAME contributors
+
+NumPy|https://numpy.org/
+by the NumPy contributors
+
+GMPython|https://github.com/Bentroen/GMPython
+by Bentroen
+
+nbswave|https://github.com/OpenNBS/nbswave
+by Bentroen
+
+GMSchematic
+by David Andrei
+
+window-DLL|https://github.com/stuffbydavid/window-DLL/
+(fork)|https://github.com/OctoFlareDev/window-DLL
+originally by David Andrei
+
+Realtime Blur|https://foxyofjungle.itch.io/realtime-blur
+by Foxy Of Jungle
+
+7-Zip|https://www.7-zip.org/
+by Igor Pavlov
+
+Pydub|http://pydub.com/
+by James Robert
+
+zlib|http://zlib.net/
+by Jean-loup Gailly and Mark Adler
+
+Fluent Icons|https://github.com/microsoft/fluentui-system-icons
+by Microsoft Corporation
+
+NekoPresence|https://github.com/nkrapivin/NekoPresence/
+by Nikita Krapivin
+
+GMaudioTools|https://github.com/OctoFlareDev/GMaudioTools
+by OctoFlare
+
+GMmacOSTools|https://github.com/OctoFlareDev/GMmacOSTools
+by OctoFlare
+
+GMSSimpleMIDI|https://github.com/RhyminGarfunkle/GMSSimpleMIDI
+by RhyminGarfunkle
+
+Dialog Module|https://marketplace.yoyogames.com/assets/6621/dialog-module
+by Samuel Venable
+
+ExecuteShell|https://marketplace.yoyogames.com/assets/575/execute-shell
+by Samuel Venable
+
+File Dropper|https://marketplace.yoyogames.com/assets/8207/file-dropper
+by Samuel Venable
+
+GMX11Caption|https://github.com/TianruiBai/GMX11Caption
+by TianruiBai
+
+pynbs|https://github.com/OpenNBS/pynbs
+by Valentin Berlier
+
+pybind11|https://github.com/pybind/pybind11
+by Wenzel Jakob
+
+*Fonts
+
+Source Han Sans|https://github.com/adobe-fonts/source-han-sans
+by Adobe, Google, Sandoll, and contributors
+SIL Open Font License 1.1
+
+Liberation Sans|https://github.com/liberationfonts/liberation-fonts
+by Google, Red Hat, and contributors
+SIL Open Font License 1.1
+
+Noto Sans Symbols 2|https://github.com/notofonts/symbols
+by the Noto Project Authors
+SIL Open Font License 1.1
+
+Open Sans|https://github.com/googlefonts/opensans
+by Steve Matteson, commissioned by Google
+Apache License 2.0
+
+WeblySleek UI
+by Mat Douglas
+Public domain
+
+---
+
+FFmpeg and LAME are licensed under the
+GNU Lesser General Public License,
+version 2.1 or later.
+A copy of the LGPL v2.1 is included with
+this application.
+
+The source code for FFmpeg and LAME is
+available from their respective projects:
+https://ffmpeg.org|https://ffmpeg.org
+https://lame.sourceforge.net|https://lame.sourceforge.net
+
+
+
+
+---
+
+
+
+*Special thanks
+to the entire note block community
+for making OpenNBS what it is!
+
+
+
+---
+
+

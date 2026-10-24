@@ -1,0 +1,14 @@
+{
+  "name": "nbs-web",
+  "private": true,
+  "version": "0.1.0",
+  "description": "NBSweb: a browser build of Note Block Studio, deployed on Cloudflare Workers",
+  "scripts": {
+    "build": "powershell -ExecutionPolicy Bypass -File web/build.ps1",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.3"
+  }
+}

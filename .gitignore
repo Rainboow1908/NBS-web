@@ -1,0 +1,16 @@
+work/
+dist/
+output/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+.wrangler/
+# Desktop-only upstream LFS binaries; the HTML5 build does not use them.
+NoteBlockStudio-3.12.0-beta.5/datafiles/ffmpeg.exe
+NoteBlockStudio-3.12.0-beta.5/datafiles/ffprobe.exe
+NoteBlockStudio-3.12.0-beta.5/extensions/pygml/*.dll
+NoteBlockStudio-3.12.0-beta.5/extensions/pygml/*.zip
+NoteBlockStudio-3.12.0-beta.5/extensions/pygml/ffmpeg
+NoteBlockStudio-3.12.0-beta.5/extensions/pygml/ffprobe
+
