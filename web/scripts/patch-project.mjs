@@ -635,13 +635,22 @@ const oldGreetingFooter = `\tvar theme_pipe_offset = (theme != 3) * 2 // move |'
 \tif (language == 1) draw_text_dynamic(x1 + 131 + 22 - theme_pipe_offset, y1 + 372 + dev_label_offset, "|")
 \tif (language != 1) draw_text_url(x1 + 156, y1 + 372 + dev_label_offset, "Donate", link_donate)
 \telse draw_text_url(x1 + 156 + 15, y1 + 372 + dev_label_offset, "捐赠", link_donate)`;
-const newGreetingFooter = `\tvar theme_pipe_offset = (theme != 3) * 2 // move |'s to the left by 2px to compensate for wider font
-\tif (language != 1) draw_text_center(x1 + 132, y1 + 340 + dev_label_offset, "Follow NBSweb:")
+const newGreetingFooter = `\tif (language != 1) draw_text_center(x1 + 132, y1 + 340 + dev_label_offset, "Follow NBSweb:")
 \telse draw_text_center(x1 + 132, y1 + 340 + dev_label_offset, "关注 NBSweb：")
-\tdraw_text_url(x1 + 80, y1 + 356 + dev_label_offset, "Discord", link_discord)
-\tdraw_text_dynamic(x1 + 104 - theme_pipe_offset, y1 + 356 + dev_label_offset, "|")
-\tdraw_text_url(x1 + 128, y1 + 356 + dev_label_offset, "GitHub", link_github)
-\tdraw_text_url(x1 + 132, y1 + 372 + dev_label_offset, condstr(language == 1, "QQ 群", "QQ group"), link_qq_group)`;
+\tvar social_y = y1 + 356 + dev_label_offset
+\tvar social_qq = condstr(language == 1, "QQ 群", "QQ group")
+\tvar social_gap = 12
+\tvar social_total = string_width_dynamic(social_qq) + string_width_dynamic("Discord") + string_width_dynamic("GitHub") + string_width_dynamic("|") * 2 + social_gap * 4
+\tvar social_x = x1 + 132 - social_total / 2
+\tdraw_text_url(social_x + string_width_dynamic(social_qq) / 2, social_y, social_qq, link_qq_group)
+\tsocial_x += string_width_dynamic(social_qq) + social_gap
+\tdraw_text_dynamic(social_x, social_y, "|")
+\tsocial_x += string_width_dynamic("|") + social_gap
+\tdraw_text_url(social_x + string_width_dynamic("Discord") / 2, social_y, "Discord", link_discord)
+\tsocial_x += string_width_dynamic("Discord") + social_gap
+\tdraw_text_dynamic(social_x, social_y, "|")
+\tsocial_x += string_width_dynamic("|") + social_gap
+\tdraw_text_url(social_x + string_width_dynamic("GitHub") / 2, social_y, "GitHub", link_github)`;
 greeting = replaceRequired(greeting, oldGreetingFooter, newGreetingFooter, "greeting social footer");
 greeting = replaceRequired(
   greeting,
