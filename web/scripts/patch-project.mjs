@@ -638,11 +638,10 @@ const oldGreetingFooter = `\tvar theme_pipe_offset = (theme != 3) * 2 // move |'
 const newGreetingFooter = `\tvar theme_pipe_offset = (theme != 3) * 2 // move |'s to the left by 2px to compensate for wider font
 \tif (language != 1) draw_text_center(x1 + 132, y1 + 340 + dev_label_offset, "Follow NBSweb:")
 \telse draw_text_center(x1 + 132, y1 + 340 + dev_label_offset, "关注 NBSweb：")
-\tdraw_text_url(x1 + 64, y1 + 356 + dev_label_offset, "Discord", link_discord)
-\tdraw_text_dynamic(x1 + 116 - theme_pipe_offset, y1 + 356 + dev_label_offset, "|")
-\tdraw_text_url(x1 + 124, y1 + 356 + dev_label_offset, "GitHub", link_github)
-\tdraw_text_dynamic(x1 + 178 - theme_pipe_offset, y1 + 356 + dev_label_offset, "|")
-\tdraw_text_url(x1 + 186, y1 + 356 + dev_label_offset, condstr(language == 1, "QQ 群", "QQ group"), link_qq_group)`;
+\tdraw_text_url(x1 + 80, y1 + 356 + dev_label_offset, "Discord", link_discord)
+\tdraw_text_dynamic(x1 + 104 - theme_pipe_offset, y1 + 356 + dev_label_offset, "|")
+\tdraw_text_url(x1 + 128, y1 + 356 + dev_label_offset, "GitHub", link_github)
+\tdraw_text_url(x1 + 132, y1 + 372 + dev_label_offset, condstr(language == 1, "QQ 群", "QQ group"), link_qq_group)`;
 greeting = replaceRequired(greeting, oldGreetingFooter, newGreetingFooter, "greeting social footer");
 greeting = replaceRequired(
   greeting,
